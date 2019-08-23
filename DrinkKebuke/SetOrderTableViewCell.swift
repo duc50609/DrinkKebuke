@@ -23,6 +23,7 @@ class SetOrderTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
     func setCellData (with cellData: DrinkData){
         nameUILabel.text = cellData.name
         contentUILabel.text = cellData.content

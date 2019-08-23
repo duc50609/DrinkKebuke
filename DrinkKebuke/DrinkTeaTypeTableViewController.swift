@@ -27,6 +27,7 @@ class DrinkTeaTypeTableViewController: UITableViewController {
         DrinkData(image: "tea-12", name: "熟成檸果 Lemon Black Tea", price: "$60.00", content: "中杯。每日限量。搭配少糖最佳。冷飲。", eng_content: "Medium. Daily limited. Suggest sweetness level with 70% sugar. Cold drinks.")
 
     ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setLogoImageView()
@@ -39,17 +40,6 @@ class DrinkTeaTypeTableViewController: UITableViewController {
                     self.logoImageView.frame = CGRect(x: 0, y: scrollView.contentOffset.y+90, width: self.cachedImageViewSize.size.width + y, height: self.cachedImageViewSize.size.height + y - 130)
                     self.logoImageView.center = CGPoint(x: self.view.center.x, y: self.logoImageView.center.y)
                 }
-    }
-    
-    func setLogoImageView() {
-        self.logoImageView = UIImageView(image: UIImage(named: "k-logo"))
-        logoImageView.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 300)
-        self.logoImageView.contentMode = .scaleAspectFill
-        self.cachedImageViewSize = logoImageView.frame
-        self.tableView.addSubview(self.logoImageView)
-        self.logoImageView.center = CGPoint(x: self.view.center.x, y: self.logoImageView.center.y)
-        self.tableView.sendSubviewToBack(self.logoImageView)
-        self.tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 280))
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -74,9 +64,19 @@ class DrinkTeaTypeTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if let controller = segue.destination as? SetOrderViewController, let _ = tableView.indexPathForSelectedRow?.section, let row = tableView.indexPathForSelectedRow?.row {
                 controller.cellData = cellContent[row]
             }
+    }
+    
+    func setLogoImageView() {
+        self.logoImageView = UIImageView(image: UIImage(named: "k-logo"))
+        logoImageView.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 300)
+        self.logoImageView.contentMode = .scaleAspectFill
+        self.cachedImageViewSize = logoImageView.frame
+        self.tableView.addSubview(self.logoImageView)
+        self.logoImageView.center = CGPoint(x: self.view.center.x, y: self.logoImageView.center.y)
+        self.tableView.sendSubviewToBack(self.logoImageView)
+        self.tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 280))
     }
 }

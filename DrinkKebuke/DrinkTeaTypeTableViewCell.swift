@@ -34,4 +34,5 @@ class DrinkTeaTypeTableViewCell: UITableViewCell {
         priceUILabel.text = cellData.price
         imageUIImageView.image = UIImage(named: cellData.image!)
     }
+    
 }

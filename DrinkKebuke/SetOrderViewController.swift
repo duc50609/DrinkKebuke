@@ -38,6 +38,7 @@ class SetOrderViewController: UIViewController, UITableViewDelegate, UITableView
             sendDataToSheetDB()
             print(name)
         }
+            
         else{
             let title = "訂單無法送出"
             let alertMessage = "請檢查每個欄位是否都填寫完成"
@@ -55,7 +56,6 @@ class SetOrderViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.dataSource = self
         price = Double((cellData?.price?.replacingOccurrences(of: "$", with: ""))!)
     }
-    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -94,6 +94,7 @@ class SetOrderViewController: UIViewController, UITableViewDelegate, UITableView
             }
             task.resume()
         }
+            
         catch{
         }
         
@@ -149,11 +150,8 @@ class SetOrderViewController: UIViewController, UITableViewDelegate, UITableView
     func setAddOrderButton(name: String){
         self.name = name
         if self.name != nil, temperature != nil, sweet != nil, add != nil, size != nil{
-            addOrderUIButton.backgroundColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+            addOrderUIButton.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
         }
         
     }
-    
-    
-    
 }

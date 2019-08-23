@@ -47,6 +47,7 @@ class SetDrinkTableViewCell: UITableViewCell, SSRadioButtonControllerDelegate {
 
         
     }
+    
     func didSelectButton(selectedButton: UIButton?) {
         if selectedButton == sizeRadioButtonController!.selectedButton(){
             if selectedButton == sizeButton[1] {
@@ -57,12 +58,15 @@ class SetDrinkTableViewCell: UITableViewCell, SSRadioButtonControllerDelegate {
             }
 
         }
+            
         else if selectedButton == temperatureRadioButtonController!.selectedButton(){
             drinkDelegate?.setTemperature(temperature: (selectedButton?.titleLabel!.text)!)
         }
+            
         else if selectedButton == sweetRadioButtonController!.selectedButton(){
             drinkDelegate?.setSweet(sweet: (selectedButton?.titleLabel!.text)!)
         }
+            
         else if selectedButton == addRadioButtonController!.selectedButton(){
             if selectedButton == addButton[1] {
                 drinkDelegate?.setAdd(add: (selectedButton?.titleLabel!.text)!, need: true)
@@ -72,6 +76,7 @@ class SetDrinkTableViewCell: UITableViewCell, SSRadioButtonControllerDelegate {
             }
 
         }
+        
         drinkDelegate?.setAddOrderButton(name: (nameUITextField?.text)!)
         //temperatureRadioButtonController?.selectedButton(Q1UITextField
     }
