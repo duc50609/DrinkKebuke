@@ -52,7 +52,6 @@ class SSRadioButton: UIButton {
             layer.masksToBounds = newValue > 0
         }
     }
-    
     fileprivate func circleFrame() -> CGRect {
         var circleFrame = CGRect(x: 0, y: 0, width: 1.2*circleRadius, height: 1.2*circleRadius)
         circleFrame.origin.x = 0 + circleLayer.lineWidth

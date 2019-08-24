@@ -35,10 +35,11 @@ class SetOrderViewController: UIViewController, UITableViewDelegate, UITableView
     @IBAction func addOrderUIButton(_ sender: Any) {
         teaVariant = cellData?.name
         if name != nil, size != nil, temperature != nil, add != nil, sweet != nil{
-            sendDataToSheetDB()
-            print(name)
+            postDataToSheetDB()
+            if let controller = storyboard?.instantiateViewController(withIdentifier: "TotalOrderPage") as? TotalOrderViewController{
+                navigationController?.pushViewController(controller, animated: true)
+            }
         }
-            
         else{
             let title = "訂單無法送出"
             let alertMessage = "請檢查每個欄位是否都填寫完成"
@@ -79,7 +80,7 @@ class SetOrderViewController: UIViewController, UITableViewDelegate, UITableView
         return cell
     }
     
-    func sendDataToSheetDB(){
+    func postDataToSheetDB(){
         let url = URL(string: "https://sheetdb.io/api/v1/8mwbo072fhly1")
         var urlRequest = URLRequest(url: url!)
         urlRequest.httpMethod = "POST"

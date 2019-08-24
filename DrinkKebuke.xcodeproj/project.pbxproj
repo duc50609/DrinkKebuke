@@ -21,6 +21,9 @@
 		8D49681B230E3EB900A0219A /* SSRadioButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D49681A230E3EB900A0219A /* SSRadioButton.swift */; };
 		8D49681D230E3EC900A0219A /* SSRadioButtonsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D49681C230E3EC900A0219A /* SSRadioButtonsController.swift */; };
 		8D49681F230E8EDD00A0219A /* SetOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D49681E230E8EDD00A0219A /* SetOrderViewController.swift */; };
+		8D496821231118BC00A0219A /* TotalOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D496820231118BC00A0219A /* TotalOrderViewController.swift */; };
+		8D49682323111E4E00A0219A /* TotalOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D49682223111E4E00A0219A /* TotalOrderTableViewCell.swift */; };
+		8D49682523114D9F00A0219A /* OrderData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D49682423114D9F00A0219A /* OrderData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +43,9 @@
 		8D49681A230E3EB900A0219A /* SSRadioButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSRadioButton.swift; sourceTree = "<group>"; };
 		8D49681C230E3EC900A0219A /* SSRadioButtonsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSRadioButtonsController.swift; sourceTree = "<group>"; };
 		8D49681E230E8EDD00A0219A /* SetOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetOrderViewController.swift; sourceTree = "<group>"; };
+		8D496820231118BC00A0219A /* TotalOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalOrderViewController.swift; sourceTree = "<group>"; };
+		8D49682223111E4E00A0219A /* TotalOrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalOrderTableViewCell.swift; sourceTree = "<group>"; };
+		8D49682423114D9F00A0219A /* OrderData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,9 +82,12 @@
 				8D2B04BC230CF4C50066F033 /* SceneDelegate.swift */,
 				8D2B04BE230CF4C50066F033 /* ViewController.swift */,
 				8D2B04C0230CF4C50066F033 /* Main.storyboard */,
+				8D49682223111E4E00A0219A /* TotalOrderTableViewCell.swift */,
+				8D496820231118BC00A0219A /* TotalOrderViewController.swift */,
 				8D49681E230E8EDD00A0219A /* SetOrderViewController.swift */,
 				8D496818230E3D0600A0219A /* SetDrinkTableViewCell.swift */,
 				8D2B04D0230D49C80066F033 /* DrinkData.swift */,
+				8D49682423114D9F00A0219A /* OrderData.swift */,
 				8D2B04CE230D21360066F033 /* DrinkTeaTypeTableViewController.swift */,
 				8D2B04D2230D72650066F033 /* DrinkTeaTypeTableViewCell.swift */,
 				8D49681A230E3EB900A0219A /* SSRadioButton.swift */,
@@ -166,7 +175,10 @@
 				8D496817230D914700A0219A /* SetOrderTableViewCell.swift in Sources */,
 				8D49681F230E8EDD00A0219A /* SetOrderViewController.swift in Sources */,
 				8D2B04D1230D49C80066F033 /* DrinkData.swift in Sources */,
+				8D49682323111E4E00A0219A /* TotalOrderTableViewCell.swift in Sources */,
+				8D496821231118BC00A0219A /* TotalOrderViewController.swift in Sources */,
 				8D2B04BB230CF4C50066F033 /* AppDelegate.swift in Sources */,
+				8D49682523114D9F00A0219A /* OrderData.swift in Sources */,
 				8D2B04D3230D72660066F033 /* DrinkTeaTypeTableViewCell.swift in Sources */,
 				8D49681D230E3EC900A0219A /* SSRadioButtonsController.swift in Sources */,
 				8D2B04BD230CF4C50066F033 /* SceneDelegate.swift in Sources */,

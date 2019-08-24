@@ -8,9 +8,10 @@
 
 import UIKit
 
-class DrinkTeaTypeTableViewController: UITableViewController {
+class DrinkTeaTypeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var logoImageView: UIImageView!
     var cachedImageViewSize: CGRect!
+    @IBOutlet weak var tableView: UITableView!
     
     let cellContent = [
         DrinkData(image: "tea-1", name: "熟成紅茶 Signature Black Tea", price: "$35.00", content: "解炸物或烤肉類油膩。果香。", eng_content: "Remove greasy of deep-fried food or grilled meat. Fruit scent."),
@@ -31,10 +32,12 @@ class DrinkTeaTypeTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setLogoImageView()
-
+        tableView.delegate = self
+        tableView.dataSource = self
+        
     }
     
-    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
                 let y: CGFloat = -scrollView.contentOffset.y
                 if y > 0 {
                     self.logoImageView.frame = CGRect(x: 0, y: scrollView.contentOffset.y+90, width: self.cachedImageViewSize.size.width + y, height: self.cachedImageViewSize.size.height + y - 130)
@@ -42,17 +45,17 @@ class DrinkTeaTypeTableViewController: UITableViewController {
                 }
     }
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
     
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return cellContent.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "drinkCell", for: indexPath) as? DrinkTeaTypeTableViewCell
             else {
                 return UITableViewCell()
