@@ -513,7 +513,7 @@
                                             <outlet property="imageUIImageView" destination="JyP-R0-wEx" id="biX-0S-eUt"/>
                                             <outlet property="nameUILabel" destination="55S-na-QBm" id="TkD-Vq-ff5"/>
                                             <outlet property="priceUILabel" destination="orr-vR-UG0" id="X3s-s6-TNY"/>
-                                            <segue destination="43n-9c-gaf" kind="show" id="09e-ZP-aJy"/>
+                                            <segue destination="43n-9c-gaf" kind="show" identifier="" id="09e-ZP-aJy"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="7tU-bo-yi7">
@@ -561,7 +561,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="7J8-mH-Lyx" kind="show" id="ntu-mR-1aV"/>
+                                    <segue destination="7J8-mH-Lyx" kind="show" identifier="showTotalOrder" id="ntu-mR-1aV"/>
                                 </connections>
                             </button>
                         </subviews>

@@ -36,9 +36,9 @@ class SetOrderViewController: UIViewController, UITableViewDelegate, UITableView
         teaVariant = cellData?.name
         if name != nil, size != nil, temperature != nil, add != nil, sweet != nil{
             postDataToSheetDB()
-            if let controller = storyboard?.instantiateViewController(withIdentifier: "TotalOrderPage") as? TotalOrderViewController{
-                navigationController?.pushViewController(controller, animated: true)
-            }
+            let navController = navigationController
+            navigationController?.popViewController(animated: false)
+            navController?.viewControllers.first?.performSegue(withIdentifier: "showTotalOrder", sender: nil)
         }
         else{
             let title = "訂單無法送出"
