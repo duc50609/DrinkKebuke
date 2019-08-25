@@ -73,10 +73,13 @@ class TotalOrderViewController: UIViewController, UITableViewDelegate, UITableVi
     
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        let order = orderData[indexPath.row]
+        let order = orderData[indexPath.row-2]
+        let deletePrice = (Double(orderData[indexPath.row-2].price!))!
+        totalPrice = totalPrice - deletePrice
         deleteDataSheetDB(orderData: order)
-        orderData.remove(at: indexPath.row)
+        orderData.remove(at: indexPath.row-2)
         tableView.deleteRows(at: [indexPath], with: .automatic)
+        tableView.reloadData()
     }
     
 
@@ -121,7 +124,6 @@ class TotalOrderViewController: UIViewController, UITableViewDelegate, UITableVi
         }
         task.resume()
     }
-    
     func deleteDataSheetDB(orderData: OrderData) {
         if let urlStr = "https://sheetdb.io/api/v1/8mwbo072fhly1/name/\(orderData.name!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed), let url = URL(string: urlStr) {
             var urlRequest = URLRequest(url: url)

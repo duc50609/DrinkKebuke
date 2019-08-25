@@ -20,6 +20,7 @@ class SetOrderViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var addOrderUIButton: UIButton!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var priceUILbel: UILabel!
+    @IBOutlet weak var loagingHFLoader: HFLoader!
     
     var cellData: DrinkData?
     var size: String!
@@ -35,10 +36,18 @@ class SetOrderViewController: UIViewController, UITableViewDelegate, UITableView
     @IBAction func addOrderUIButton(_ sender: Any) {
         teaVariant = cellData?.name
         if name != nil, size != nil, temperature != nil, add != nil, sweet != nil{
+            loagingHFLoader.alpha = 1
+            UIApplication.shared.beginIgnoringInteractionEvents()
+            loagingHFLoader.startAnimation()
             postDataToSheetDB()
-            let navController = navigationController
-            navigationController?.popViewController(animated: false)
-            navController?.viewControllers.first?.performSegue(withIdentifier: "showTotalOrder", sender: nil)
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3){
+                UIApplication.shared.endIgnoringInteractionEvents()
+                self.loagingHFLoader.stopAnimation()
+                let navController = self.navigationController
+                self.navigationController?.popViewController(animated: false)
+                navController?.viewControllers.first?.performSegue(withIdentifier: "showTotalOrder", sender: nil)
+            }
+
         }
         else{
             let title = "訂單無法送出"
@@ -69,7 +78,7 @@ class SetOrderViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell", for: indexPath) as? SetTitleOrderTableViewCell, indexPath.row == 0 else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell", for: indexPath) as? SetOrderTableViewCell, indexPath.row == 0 else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "setDrinkCell", for: indexPath) as? SetDrinkTableViewCell, indexPath.row == 1 else {
                 return UITableViewCell()
             }
@@ -93,6 +102,7 @@ class SetOrderViewController: UIViewController, UITableViewDelegate, UITableView
             let task = URLSession.shared.uploadTask(with: urlRequest, from: data) { (retData, res, err) in
                 NotificationCenter.default.post(name: Notification.Name("waitMessage"), object: nil, userInfo: ["message": true])
             }
+
             task.resume()
         }
             
