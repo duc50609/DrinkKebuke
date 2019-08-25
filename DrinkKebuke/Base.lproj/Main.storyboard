@@ -540,28 +540,6 @@
                                             <segue destination="43n-9c-gaf" kind="show" identifier="" id="09e-ZP-aJy"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="7tU-bo-yi7">
-                                        <rect key="frame" x="0.0" y="168" width="414" height="140"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7tU-bo-yi7" id="Cb6-mu-Qjf">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="140"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cfn-hM-2tn">
-                                                    <rect key="frame" x="14" y="311" width="385" height="0.0"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="Cfn-hM-2tn" secondAttribute="trailing" constant="15" id="2BL-aH-bat"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="Cfn-hM-2tn" secondAttribute="bottom" constant="300" id="417-6q-V9W"/>
-                                                <constraint firstItem="Cfn-hM-2tn" firstAttribute="leading" secondItem="Cb6-mu-Qjf" secondAttribute="leading" constant="14" id="HX5-xv-re3"/>
-                                                <constraint firstItem="Cfn-hM-2tn" firstAttribute="top" secondItem="Cb6-mu-Qjf" secondAttribute="topMargin" constant="300" id="Sxb-tz-Sth"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="jhA-Bw-fZg" id="ItW-Uf-CRV"/>

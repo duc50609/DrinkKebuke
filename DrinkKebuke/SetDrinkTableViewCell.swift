@@ -49,33 +49,32 @@ class SetDrinkTableViewCell: UITableViewCell, SSRadioButtonControllerDelegate {
     }
     
     func didSelectButton(selectedButton: UIButton?) {
-        let buttonText = selectedButton?.titleLabel!.text
         let nameTextField = nameUITextField?.text
         
-        if selectedButton == sizeRadioButtonController!.selectedButton(){
+        if let buttonText = selectedButton?.titleLabel!.text, selectedButton == sizeRadioButtonController!.selectedButton(){
             if selectedButton == sizeButton[1] {
-                drinkDelegate?.setSize(size: buttonText!, large: true)
+                drinkDelegate?.setSize(size: buttonText, large: true)
             }
             else{
-                drinkDelegate?.setSize(size: buttonText!, large: false)
+                drinkDelegate?.setSize(size: buttonText, large: false)
             }
 
         }
             
-        else if selectedButton == temperatureRadioButtonController!.selectedButton(){
-            drinkDelegate?.setTemperature(temperature: buttonText!)
+        else if let buttonText = selectedButton?.titleLabel!.text, selectedButton == temperatureRadioButtonController!.selectedButton(){
+            drinkDelegate?.setTemperature(temperature: buttonText)
         }
             
-        else if selectedButton == sweetRadioButtonController!.selectedButton(){
-            drinkDelegate?.setSweet(sweet: buttonText!)
+        else if let buttonText = selectedButton?.titleLabel!.text, selectedButton == sweetRadioButtonController!.selectedButton(){
+            drinkDelegate?.setSweet(sweet: buttonText)
         }
             
-        else if selectedButton == addRadioButtonController!.selectedButton(){
+        else if selectedButton == addRadioButtonController!.selectedButton(), let buttonText = selectedButton?.titleLabel!.text{
             if selectedButton == addButton[1] {
-                drinkDelegate?.setAdd(add: buttonText!, need: true)
+                drinkDelegate?.setAdd(add: buttonText, need: true)
             }
             else{
-                drinkDelegate?.setAdd(add: buttonText!, need: false)
+                drinkDelegate?.setAdd(add: buttonText, need: false)
             }
 
         }
