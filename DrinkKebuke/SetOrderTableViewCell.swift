@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SetOrderTableViewCell: UITableViewCell {
+class SetTitleOrderTableViewCell: UITableViewCell {
     @IBOutlet weak var nameUILabel: UILabel!
     @IBOutlet weak var contentUILabel: UILabel!
     @IBOutlet weak var eng_contentUILabel: UILabel!

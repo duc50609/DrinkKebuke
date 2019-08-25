@@ -69,7 +69,7 @@ class SetOrderViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell", for: indexPath) as? SetOrderTableViewCell, indexPath.row == 0 else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "titleCell", for: indexPath) as? SetTitleOrderTableViewCell, indexPath.row == 0 else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "setDrinkCell", for: indexPath) as? SetDrinkTableViewCell, indexPath.row == 1 else {
                 return UITableViewCell()
             }
@@ -100,6 +100,7 @@ class SetOrderViewController: UIViewController, UITableViewDelegate, UITableView
         }
         
     }
+    
     func setPrice(type: String){
         let originalPrice = Double((cellData?.price?.replacingOccurrences(of: "$", with: ""))!)
         if checkAdd, checkSize{

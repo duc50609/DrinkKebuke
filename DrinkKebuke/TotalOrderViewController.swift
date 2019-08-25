@@ -18,22 +18,29 @@ class TotalOrderViewController: UIViewController, UITableViewDelegate, UITableVi
     var cachedImageViewSize: CGRect!
     var orderData = [OrderData]()
     var totalPrice: Double = 0
+    
     @IBOutlet weak var totalPriceUILabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
-    
+    @IBOutlet weak var loadingHFLoader: HFLoader!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        loadingHFLoader.startAnimation()
         setLogoImageView()
         getDataSheetDB()
+
     }
     
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let y: CGFloat = -scrollView.contentOffset.y
-        if y > 0 {
-            self.logoImageView.frame = CGRect(x: 0, y: scrollView.contentOffset.y+90, width: self.cachedImageViewSize.size.width + y, height: self.cachedImageViewSize.size.height + y - 130)
-            self.logoImageView.center = CGPoint(x: self.view.center.x, y: self.logoImageView.center.y)
+    @IBAction func callNumber(_ sender: Any) {
+        if let url = URL(string: "tel://0225175510"), UIApplication.shared.canOpenURL(url) {
+            if #available(iOS 10, *) {
+                UIApplication.shared.open(url)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
         }
     }
     
@@ -47,7 +54,6 @@ class TotalOrderViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "storeCell", for: indexPath) as? TotalOrderTableViewCell, indexPath.row == 0 else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "orderCell", for: indexPath) as? TotalOrderTableViewCell, indexPath.row > 1 else {
                     guard let cell = tableView.dequeueReusableCell(withIdentifier: "priceCell", for: indexPath) as? PriceTableViewCell, indexPath.row == 1 else {
@@ -73,6 +79,49 @@ class TotalOrderViewController: UIViewController, UITableViewDelegate, UITableVi
         tableView.deleteRows(at: [indexPath], with: .automatic)
     }
     
+
+    func setLogoImageView() {
+        self.logoImageView = UIImageView(image: UIImage(named: "k-logo2"))
+        logoImageView.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 300)
+        self.logoImageView.contentMode = .scaleAspectFill
+        self.cachedImageViewSize = logoImageView.frame
+        self.tableView.addSubview(self.logoImageView)
+        self.logoImageView.center = CGPoint(x: self.view.center.x, y: self.logoImageView.center.y)
+        self.tableView.sendSubviewToBack(self.logoImageView)
+        self.tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 280))
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let y: CGFloat = -scrollView.contentOffset.y
+        if y > 0 {
+            self.logoImageView.frame = CGRect(x: 0, y: scrollView.contentOffset.y+90, width: self.cachedImageViewSize.size.width + y, height: self.cachedImageViewSize.size.height + y - 130)
+            self.logoImageView.center = CGPoint(x: self.view.center.x, y: self.logoImageView.center.y)
+        }
+    }
+    
+    func getDataSheetDB(){
+        let urlStr = "https://sheetdb.io/api/v1/8mwbo072fhly1".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        let url = URL(string: urlStr!)
+        
+        let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
+            if let data = data, let contents = (try? JSONSerialization.jsonObject(with: data, options: [])) as? [[String: Any]]{
+                for content in contents {
+                    if let data = OrderData(json: content){
+                        self.orderData.append(data)
+                        self.totalPrice = self.totalPrice + (Double(data.price!))!
+                    }
+                }
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    UIApplication.shared.endIgnoringInteractionEvents()
+                    self.loadingHFLoader.stopAnimation()
+                }
+            }
+        }
+        task.resume()
+    }
+    
     func deleteDataSheetDB(orderData: OrderData) {
         if let urlStr = "https://sheetdb.io/api/v1/8mwbo072fhly1/name/\(orderData.name!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed), let url = URL(string: urlStr) {
             var urlRequest = URLRequest(url: url)
@@ -96,47 +145,6 @@ class TotalOrderViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
 
-    func setLogoImageView() {
-        self.logoImageView = UIImageView(image: UIImage(named: "k-logo2"))
-        logoImageView.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 300)
-        self.logoImageView.contentMode = .scaleAspectFill
-        self.cachedImageViewSize = logoImageView.frame
-        self.tableView.addSubview(self.logoImageView)
-        self.logoImageView.center = CGPoint(x: self.view.center.x, y: self.logoImageView.center.y)
-        self.tableView.sendSubviewToBack(self.logoImageView)
-        self.tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 280))
-    }
-    
-    func getDataSheetDB(){
-        let urlStr = "https://sheetdb.io/api/v1/8mwbo072fhly1".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-        let url = URL(string: urlStr!)
-        
-        let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
-            if let data = data, let contents = (try? JSONSerialization.jsonObject(with: data, options: [])) as? [[String: Any]]{
-                for content in contents {
-                    if let data = OrderData(json: content){
-                        self.orderData.append(data)
-                        self.totalPrice = self.totalPrice + (Double(data.price!))!
-                    }
-                }
-                
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
-            }
-        }
-        task.resume()
-    }
-    
-    @IBAction func callNumber(_ sender: Any) {
-        if let url = URL(string: "tel://0225175510"), UIApplication.shared.canOpenURL(url) {
-            if #available(iOS 10, *) {
-                UIApplication.shared.open(url)
-            } else {
-                UIApplication.shared.openURL(url)
-            }
-        }
-    }
     
     
 }
