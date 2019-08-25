@@ -60,16 +60,27 @@ class SetDrinkTableViewCell: UITableViewCell, SSRadioButtonControllerDelegate {
             }
 
         }
-            
-        else if let buttonText = selectedButton?.titleLabel!.text, selectedButton == temperatureRadioButtonController!.selectedButton(){
-            drinkDelegate?.setTemperature(temperature: buttonText)
+        
+        else{
+            drinkDelegate?.setSize(size: "", large: false)
         }
             
-        else if let buttonText = selectedButton?.titleLabel!.text, selectedButton == sweetRadioButtonController!.selectedButton(){
+        if let buttonText = selectedButton?.titleLabel!.text, selectedButton == temperatureRadioButtonController!.selectedButton(){
+            drinkDelegate?.setTemperature(temperature: buttonText)
+        }
+        else{
+            drinkDelegate?.setTemperature(temperature: "")
+        }
+            
+        if let buttonText = selectedButton?.titleLabel!.text, selectedButton == sweetRadioButtonController!.selectedButton(){
             drinkDelegate?.setSweet(sweet: buttonText)
         }
             
-        else if selectedButton == addRadioButtonController!.selectedButton(), let buttonText = selectedButton?.titleLabel!.text{
+        else{
+            drinkDelegate?.setSweet(sweet: "")
+        }
+            
+        if selectedButton == addRadioButtonController!.selectedButton(), let buttonText = selectedButton?.titleLabel!.text{
             if selectedButton == addButton[1] {
                 drinkDelegate?.setAdd(add: buttonText, need: true)
             }
@@ -78,6 +89,10 @@ class SetDrinkTableViewCell: UITableViewCell, SSRadioButtonControllerDelegate {
             }
 
         }
+        else{
+            drinkDelegate?.setAdd(add: "", need: false)
+        }
+    
         
         drinkDelegate?.setAddOrderButton(name: nameTextField!)
         //temperatureRadioButtonController?.selectedButton(Q1UITextField

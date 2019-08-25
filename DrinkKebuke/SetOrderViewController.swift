@@ -35,7 +35,7 @@ class SetOrderViewController: UIViewController, UITableViewDelegate, UITableView
     
     @IBAction func addOrderUIButton(_ sender: Any) {
         teaVariant = cellData?.name
-        if name != nil, size != nil, temperature != nil, add != nil, sweet != nil{
+        if name != nil, size != nil, temperature != nil, add != nil, sweet != nil, name != "", size != "", temperature != "", add != "", sweet != ""{
             loagingHFLoader.alpha = 1
             UIApplication.shared.beginIgnoringInteractionEvents()
             loagingHFLoader.startAnimation()
@@ -129,39 +129,46 @@ class SetOrderViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func setSize(size: String, large: Bool){
-        self.size = size
-        if large{
+        if large, size != ""{
+            self.size = size
             checkSize = true
         }
-        else{
+        else if size != ""{
+            self.size = size
             checkSize = false
         }
         setPrice(type: "size")
     }
     
     func setSweet(sweet: String){
-        self.sweet = sweet
+        if sweet != "" {
+            self.sweet = sweet
+        }
     }
     
     func setAdd(add: String, need: Bool){
-        self.add = add
-        if need{
+        if need, add != ""{
             checkAdd = true
+            self.add = add
+
         }
-        else{
+        else if add != ""{
             checkAdd = false
+            self.add = add
         }
         setPrice(type: "add")
         
     }
     
     func setTemperature(temperature: String){
-        self.temperature = temperature
+        if temperature != ""{
+            self.temperature = temperature
+        }
     }
     
     func setAddOrderButton(name: String){
         self.name = name
-        if self.name != nil, temperature != nil, sweet != nil, add != nil, size != nil{
+        if self.name != nil, temperature != nil, sweet != nil, add != nil, size != nil, name != "", size != "", temperature != "", add != "", sweet != ""{
             addOrderUIButton.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
         }
         
