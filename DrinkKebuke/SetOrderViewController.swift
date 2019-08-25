@@ -90,7 +90,7 @@ class SetOrderViewController: UIViewController, UITableViewDelegate, UITableView
     }
     
     func postDataToSheetDB(){
-        let url = URL(string: "https://sheetdb.io/api/v1/8mwbo072fhly1")
+        let url = URL(string: "https://sheetdb.io/api/v1/ovpbyaxyfnp82")
         var urlRequest = URLRequest(url: url!)
         urlRequest.httpMethod = "POST"
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")

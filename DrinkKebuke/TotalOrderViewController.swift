@@ -103,7 +103,7 @@ class TotalOrderViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func getDataSheetDB(){
-        let urlStr = "https://sheetdb.io/api/v1/8mwbo072fhly1".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        let urlStr = "https://sheetdb.io/api/v1/ovpbyaxyfnp82".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         let url = URL(string: urlStr!)
         
         let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
@@ -125,7 +125,7 @@ class TotalOrderViewController: UIViewController, UITableViewDelegate, UITableVi
         task.resume()
     }
     func deleteDataSheetDB(orderData: OrderData) {
-        if let urlStr = "https://sheetdb.io/api/v1/8mwbo072fhly1/name/\(orderData.name!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed), let url = URL(string: urlStr) {
+        if let urlStr = "https://sheetdb.io/api/v1/ovpbyaxyfnp82/name/\(orderData.name!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed), let url = URL(string: urlStr) {
             var urlRequest = URLRequest(url: url)
             urlRequest.httpMethod = "DELETE"
             urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
