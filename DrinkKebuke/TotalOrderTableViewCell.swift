@@ -19,6 +19,8 @@ class TotalOrderTableViewCell: UITableViewCell {
     @IBOutlet weak var priceUILabel: UILabel!
     @IBOutlet weak var teaUIImagerView: UIImageView!
     
+    var totalPrice: Double = 0;
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -32,14 +34,10 @@ class TotalOrderTableViewCell: UITableViewCell {
     
     func update(with cellData: OrderData) {
         let teaVariant = cellData.teaVariant!
-        var image: UIImage?
         let addon = cellData.addon!
-        nameUILabel.text = "    訂購人： " + cellData.name!
-        teaUILabel.text = cellData.teaVariant
-        sizeUILabel.text = cellData.size
-        sweetUILabel.text = cellData.sugarLevel
-        temperatureUILabel.text = cellData.temperature
-        priceUILabel.text = "NT$" + cellData.price!
+        let price = cellData.price!
+        var image: UIImage?
+
         
         if addon == "無"{
             addUILabel.text = ""
@@ -77,5 +75,11 @@ class TotalOrderTableViewCell: UITableViewCell {
                 print("Error")
         }
         teaUIImagerView.image = image
+        nameUILabel.text = "    訂購人： " + cellData.name!
+        teaUILabel.text = cellData.teaVariant
+        sizeUILabel.text = cellData.size
+        sweetUILabel.text = cellData.sugarLevel
+        temperatureUILabel.text = cellData.temperature
+        priceUILabel.text = "NT$" + cellData.price!
     }
 }

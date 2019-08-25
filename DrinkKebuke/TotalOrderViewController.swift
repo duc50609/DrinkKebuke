@@ -7,14 +7,18 @@
 //
 
 import UIKit
+
 struct Order: Encodable {
     var data: OrderData
 }
+
 class TotalOrderViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     var logoImageView: UIImageView!
+    var storeTableViewCell : UITableViewCell!
     var cachedImageViewSize: CGRect!
     var orderData = [OrderData]()
-    
+    var totalPrice: Double = 0
+    @IBOutlet weak var totalPriceUILabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -22,7 +26,7 @@ class TotalOrderViewController: UIViewController, UITableViewDelegate, UITableVi
         tableView.delegate = self
         tableView.dataSource = self
         setLogoImageView()
-        getDataToSheetDB()
+        getDataSheetDB()
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -39,35 +43,42 @@ class TotalOrderViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return orderData.count
+        return orderData.count+2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "orderCell", for: indexPath) as? TotalOrderTableViewCell
-            else {
-                return UITableViewCell()
-        }
-        let cellData = orderData[indexPath.row]
-        cell.update(with: cellData)
-        
+
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "storeCell", for: indexPath) as? TotalOrderTableViewCell, indexPath.row == 0 else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "orderCell", for: indexPath) as? TotalOrderTableViewCell, indexPath.row > 1 else {
+                    guard let cell = tableView.dequeueReusableCell(withIdentifier: "priceCell", for: indexPath) as? PriceTableViewCell, indexPath.row == 1 else {
+                            return UITableViewCell()
+                        }
+                    cell.drinksUILabel.text = "總計\(orderData.count)杯"
+                    cell.priceUILabel.stopRuning()
+                    cell.priceUILabel.animation(0.0, toNum: totalPrice, duration: cell.priceUILabel.getTimeDurationFromNum(num: totalPrice))
+                    return cell
+                }
+                let cellData = orderData[indexPath.row-2]
+                cell.update(with: cellData)
+                return cell
+            }
         return cell
     }
     
+    
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         let order = orderData[indexPath.row]
-        deleteDataToSheetDB(orderData: order)
+        deleteDataSheetDB(orderData: order)
         orderData.remove(at: indexPath.row)
         tableView.deleteRows(at: [indexPath], with: .automatic)
     }
     
-    func deleteDataToSheetDB(orderData: OrderData) {
+    func deleteDataSheetDB(orderData: OrderData) {
         if let urlStr = "https://sheetdb.io/api/v1/8mwbo072fhly1/name/\(orderData.name!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed), let url = URL(string: urlStr) {
             var urlRequest = URLRequest(url: url)
             urlRequest.httpMethod = "DELETE"
             urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-            print(urlStr)
             let order = Order(data: orderData)
-            print(order)
             let jsonEncoder = JSONEncoder()
             if let data = try? jsonEncoder.encode(order) {
                 let task = URLSession.shared.uploadTask(with: urlRequest, from: data) { (retData, response, error)in
@@ -96,7 +107,7 @@ class TotalOrderViewController: UIViewController, UITableViewDelegate, UITableVi
         self.tableView.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 280))
     }
     
-    func getDataToSheetDB(){
+    func getDataSheetDB(){
         let urlStr = "https://sheetdb.io/api/v1/8mwbo072fhly1".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         let url = URL(string: urlStr!)
         
@@ -105,6 +116,7 @@ class TotalOrderViewController: UIViewController, UITableViewDelegate, UITableVi
                 for content in contents {
                     if let data = OrderData(json: content){
                         self.orderData.append(data)
+                        self.totalPrice = self.totalPrice + (Double(data.price!))!
                     }
                 }
                 
@@ -115,5 +127,16 @@ class TotalOrderViewController: UIViewController, UITableViewDelegate, UITableVi
         }
         task.resume()
     }
+    
+    @IBAction func callNumber(_ sender: Any) {
+        if let url = URL(string: "tel://0225175510"), UIApplication.shared.canOpenURL(url) {
+            if #available(iOS 10, *) {
+                UIApplication.shared.open(url)
+            } else {
+                UIApplication.shared.openURL(url)
+            }
+        }
+    }
+    
     
 }

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D18684A23125B2F00AE3508 /* PriceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D18684923125B2F00AE3508 /* PriceTableViewCell.swift */; };
+		8D18684C2312719E00AE3508 /* AnimationLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D18684B2312719E00AE3508 /* AnimationLabel.swift */; };
 		8D2B04BB230CF4C50066F033 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2B04BA230CF4C50066F033 /* AppDelegate.swift */; };
 		8D2B04BD230CF4C50066F033 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2B04BC230CF4C50066F033 /* SceneDelegate.swift */; };
 		8D2B04BF230CF4C50066F033 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2B04BE230CF4C50066F033 /* ViewController.swift */; };
@@ -27,6 +29,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8D18684923125B2F00AE3508 /* PriceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceTableViewCell.swift; sourceTree = "<group>"; };
+		8D18684B2312719E00AE3508 /* AnimationLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationLabel.swift; sourceTree = "<group>"; };
 		8D2B04B7230CF4C50066F033 /* DrinkKebuke.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrinkKebuke.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D2B04BA230CF4C50066F033 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8D2B04BC230CF4C50066F033 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +86,8 @@
 				8D2B04BC230CF4C50066F033 /* SceneDelegate.swift */,
 				8D2B04BE230CF4C50066F033 /* ViewController.swift */,
 				8D2B04C0230CF4C50066F033 /* Main.storyboard */,
+				8D18684B2312719E00AE3508 /* AnimationLabel.swift */,
+				8D18684923125B2F00AE3508 /* PriceTableViewCell.swift */,
 				8D49682223111E4E00A0219A /* TotalOrderTableViewCell.swift */,
 				8D496820231118BC00A0219A /* TotalOrderViewController.swift */,
 				8D49681E230E8EDD00A0219A /* SetOrderViewController.swift */,
@@ -179,12 +185,14 @@
 				8D496821231118BC00A0219A /* TotalOrderViewController.swift in Sources */,
 				8D2B04BB230CF4C50066F033 /* AppDelegate.swift in Sources */,
 				8D49682523114D9F00A0219A /* OrderData.swift in Sources */,
+				8D18684A23125B2F00AE3508 /* PriceTableViewCell.swift in Sources */,
 				8D2B04D3230D72660066F033 /* DrinkTeaTypeTableViewCell.swift in Sources */,
 				8D49681D230E3EC900A0219A /* SSRadioButtonsController.swift in Sources */,
 				8D2B04BD230CF4C50066F033 /* SceneDelegate.swift in Sources */,
 				8D2B04CF230D21360066F033 /* DrinkTeaTypeTableViewController.swift in Sources */,
 				8D496819230E3D0600A0219A /* SetDrinkTableViewCell.swift in Sources */,
 				8D49681B230E3EB900A0219A /* SSRadioButton.swift in Sources */,
+				8D18684C2312719E00AE3508 /* AnimationLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

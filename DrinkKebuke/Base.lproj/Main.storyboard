@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14790.5"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="iOS 13.0 system colors" minToolsVersion="11.0"/>
     </dependencies>
     <scenes>
         <!--Set Order View Controller-->
@@ -590,8 +591,94 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="storeCell" rowHeight="89" id="Ngx-YT-0cd" customClass="TotalOrderTableViewCell" customModule="DrinkKebuke" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="89"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ngx-YT-0cd" id="e2b-SO-GMm">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="89"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="可不可熟成紅茶-台北伊通店" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9YK-8s-NGA">
+                                                    <rect key="frame" x="15" y="5" width="384" height="38"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="📍台北市中山區伊通街47號" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VUy-74-YGW">
+                                                    <rect key="frame" x="15" y="60" width="197" height="8"/>
+                                                    <fontDescription key="fontDescription" name=".PingFangTC-Regular" family=".PingFang TC" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SRg-YN-pc3">
+                                                    <rect key="frame" x="256" y="48" width="117" height="32"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <state key="normal" title="℡ 02-25175510"/>
+                                                    <connections>
+                                                        <action selector="callNumber:" destination="7J8-mH-Lyx" eventType="touchUpInside" id="JKK-Hn-TAK"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="SRg-YN-pc3" firstAttribute="centerY" secondItem="VUy-74-YGW" secondAttribute="centerY" id="3e1-wJ-44Y"/>
+                                                <constraint firstAttribute="bottom" secondItem="VUy-74-YGW" secondAttribute="bottom" constant="20" id="WHo-Cx-Lt0"/>
+                                                <constraint firstItem="9YK-8s-NGA" firstAttribute="leading" secondItem="e2b-SO-GMm" secondAttribute="leading" constant="15" id="glH-3s-lvG"/>
+                                                <constraint firstItem="VUy-74-YGW" firstAttribute="top" secondItem="9YK-8s-NGA" secondAttribute="bottom" constant="17" id="iBK-5u-pcw"/>
+                                                <constraint firstItem="VUy-74-YGW" firstAttribute="leading" secondItem="e2b-SO-GMm" secondAttribute="leading" constant="15" id="kNF-9c-QBX"/>
+                                                <constraint firstItem="9YK-8s-NGA" firstAttribute="top" secondItem="e2b-SO-GMm" secondAttribute="top" constant="5" id="pvB-wA-enN"/>
+                                                <constraint firstAttribute="trailing" secondItem="9YK-8s-NGA" secondAttribute="trailing" constant="15" id="vMA-qe-X1g"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="SRg-YN-pc3" secondAttribute="trailing" constant="21" id="zB6-1F-ZYm"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="priceCell" id="svb-Qs-pCG" customClass="PriceTableViewCell" customModule="DrinkKebuke" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="117" width="414" height="70.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="svb-Qs-pCG" id="1oV-5K-mT7">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="70.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="總計 66杯" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qje-7s-tOK">
+                                                    <rect key="frame" x="80" y="21" width="103.5" height="28.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="666.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6pr-C2-Tc0">
+                                                    <rect key="frame" x="271.5" y="21.5" width="77.5" height="28"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NT$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Bm-9T-4Uy">
+                                                    <rect key="frame" x="226.5" y="21.5" width="45" height="28"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="6pr-C2-Tc0" firstAttribute="leading" secondItem="8Bm-9T-4Uy" secondAttribute="trailing" id="NO5-Gz-mGA"/>
+                                                <constraint firstItem="6pr-C2-Tc0" firstAttribute="centerY" secondItem="qje-7s-tOK" secondAttribute="centerY" id="XGx-O4-Ple"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="qje-7s-tOK" secondAttribute="bottom" constant="10" id="fOc-hS-yee"/>
+                                                <constraint firstItem="qje-7s-tOK" firstAttribute="top" secondItem="1oV-5K-mT7" secondAttribute="topMargin" constant="10" id="gRq-QO-kB9"/>
+                                                <constraint firstItem="qje-7s-tOK" firstAttribute="leading" secondItem="1oV-5K-mT7" secondAttribute="leadingMargin" constant="60" id="iJm-Fv-Az0"/>
+                                                <constraint firstItem="6pr-C2-Tc0" firstAttribute="centerY" secondItem="8Bm-9T-4Uy" secondAttribute="centerY" id="pK8-Tw-tuE"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="6pr-C2-Tc0" secondAttribute="trailing" constant="45" id="pYa-o6-NCz"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="drinksUILabel" destination="qje-7s-tOK" id="z4Z-os-SFo"/>
+                                            <outlet property="priceUILabel" destination="6pr-C2-Tc0" id="yi6-ij-ueU"/>
+                                        </connections>
+                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="orderCell" rowHeight="172" id="Ye7-LW-4Lf" customClass="TotalOrderTableViewCell" customModule="DrinkKebuke" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="172"/>
+                                        <rect key="frame" x="0.0" y="187.5" width="414" height="172"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ye7-LW-4Lf" id="gYu-q9-Eex">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="172"/>
@@ -716,11 +803,45 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="2bz-q0-Z2g" id="kWL-jD-9KQ"/>
+                        <outlet property="totalPriceUILabel" destination="z4q-88-UpY" id="ZBe-Yg-za6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wNN-1b-lNv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="4oZ-PY-VKx">
+                    <rect key="frame" x="0.0" y="90" width="414" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="總計   16杯   NT$666" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z4q-88-UpY">
+                            <rect key="frame" x="186" y="14" width="212" height="28"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                            <color key="textColor" cocoaTouchSystemColor="systemYellowColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vmr-5M-Tmy">
+                            <rect key="frame" x="124" y="15" width="57" height="29"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                            <color key="textColor" cocoaTouchSystemColor="systemYellowColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.01361704245" green="0.2325061262" blue="0.31185525660000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <viewLayoutGuide key="safeArea" id="bmF-wI-96a"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" red="0.73456448320000001" green="0.58085805180000005" blue="0.36208251120000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="4"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="20"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
             </objects>
-            <point key="canvasLocation" x="1351" y="410"/>
+            <point key="canvasLocation" x="1350.7246376811595" y="409.82142857142856"/>
         </scene>
     </scenes>
 </document>

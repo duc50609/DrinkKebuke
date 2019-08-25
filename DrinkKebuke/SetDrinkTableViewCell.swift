@@ -50,6 +50,7 @@ class SetDrinkTableViewCell: UITableViewCell, SSRadioButtonControllerDelegate {
     
     func didSelectButton(selectedButton: UIButton?) {
         let buttonText = selectedButton?.titleLabel!.text
+        let nameTextField = nameUITextField?.text
         
         if selectedButton == sizeRadioButtonController!.selectedButton(){
             if selectedButton == sizeButton[1] {
@@ -79,7 +80,7 @@ class SetDrinkTableViewCell: UITableViewCell, SSRadioButtonControllerDelegate {
 
         }
         
-        drinkDelegate?.setAddOrderButton(name: (nameUITextField?.text)!)
+        drinkDelegate?.setAddOrderButton(name: nameTextField!)
         //temperatureRadioButtonController?.selectedButton(Q1UITextField
     }
 
