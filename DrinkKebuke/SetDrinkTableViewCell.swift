@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SetDrinkTableViewCell: UITableViewCell, SSRadioButtonControllerDelegate {
+class SetDrinkTableViewCell: UITableViewCell, SSRadioButtonControllerDelegate, UITextFieldDelegate {
     @IBOutlet var sizeButton: [SSRadioButton]!
     @IBOutlet var sweetButton: [SSRadioButton]!
     @IBOutlet var temperatureButton: [SSRadioButton]!
@@ -26,9 +26,12 @@ class SetDrinkTableViewCell: UITableViewCell, SSRadioButtonControllerDelegate {
         super.awakeFromNib()
         // Initialization code
     }
-
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.endEditing(true)
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+        nameUITextField.delegate = self
         sizeRadioButtonController = SSRadioButtonsController(buttons: sizeButton[0], sizeButton[1])
         sizeRadioButtonController!.delegate = self
         sizeRadioButtonController!.shouldLetDeSelect = true
@@ -46,6 +49,10 @@ class SetDrinkTableViewCell: UITableViewCell, SSRadioButtonControllerDelegate {
         addRadioButtonController!.shouldLetDeSelect = true
 
         
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.endEditing(true)
     }
     
     func didSelectButton(selectedButton: UIButton?) {
@@ -97,6 +104,11 @@ class SetDrinkTableViewCell: UITableViewCell, SSRadioButtonControllerDelegate {
         drinkDelegate?.setAddOrderButton(name: nameTextField!)
         //temperatureRadioButtonController?.selectedButton(Q1UITextField
     }
-
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
 }
 
