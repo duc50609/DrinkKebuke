@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -27,9 +27,17 @@
 		8D496821231118BC00A0219A /* TotalOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D496820231118BC00A0219A /* TotalOrderViewController.swift */; };
 		8D49682323111E4E00A0219A /* TotalOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D49682223111E4E00A0219A /* TotalOrderTableViewCell.swift */; };
 		8D49682523114D9F00A0219A /* OrderData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D49682423114D9F00A0219A /* OrderData.swift */; };
+		8D797E6C2313CC8F0040702D /* CarnivalWheelSlice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D797E6B2313CC8F0040702D /* CarnivalWheelSlice.swift */; };
+		8D797E732313D31D0040702D /* BEBAS___.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8D797E722313D2930040702D /* BEBAS___.ttf */; };
+		8D797E742313D31F0040702D /* Chunkfive.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D797E702313D2920040702D /* Chunkfive.otf */; };
+		8D797E752313D3220040702D /* Lobster_1.3.otf in Resources */ = {isa = PBXBuildFile; fileRef = 8D797E712313D2930040702D /* Lobster_1.3.otf */; };
+		8D797E762313D3240040702D /* Phosphate.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 8D797E6F2313D2920040702D /* Phosphate.ttc */; };
+		F7A5501CB7A8E00D72026C06 /* Pods_DrinkKebuke.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 336EDD7A1D7E31520D74281B /* Pods_DrinkKebuke.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D0A754D1AD10CBB5ADC7C07 /* Pods-DrinkKebuke.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinkKebuke.debug.xcconfig"; path = "Target Support Files/Pods-DrinkKebuke/Pods-DrinkKebuke.debug.xcconfig"; sourceTree = "<group>"; };
+		336EDD7A1D7E31520D74281B /* Pods_DrinkKebuke.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DrinkKebuke.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D18684923125B2F00AE3508 /* PriceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceTableViewCell.swift; sourceTree = "<group>"; };
 		8D18684B2312719E00AE3508 /* AnimationLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationLabel.swift; sourceTree = "<group>"; };
 		8D18684D23127CE800AE3508 /* activityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = activityIndicator.swift; sourceTree = "<group>"; };
@@ -52,6 +60,12 @@
 		8D496820231118BC00A0219A /* TotalOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalOrderViewController.swift; sourceTree = "<group>"; };
 		8D49682223111E4E00A0219A /* TotalOrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalOrderTableViewCell.swift; sourceTree = "<group>"; };
 		8D49682423114D9F00A0219A /* OrderData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderData.swift; sourceTree = "<group>"; };
+		8D797E6B2313CC8F0040702D /* CarnivalWheelSlice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarnivalWheelSlice.swift; sourceTree = "<group>"; };
+		8D797E6F2313D2920040702D /* Phosphate.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = Phosphate.ttc; sourceTree = "<group>"; };
+		8D797E702313D2920040702D /* Chunkfive.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Chunkfive.otf; sourceTree = "<group>"; };
+		8D797E712313D2930040702D /* Lobster_1.3.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Lobster_1.3.otf; sourceTree = "<group>"; };
+		8D797E722313D2930040702D /* BEBAS___.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BEBAS___.ttf"; sourceTree = "<group>"; };
+		900A41B6DB17DDCDE3B78197 /* Pods-DrinkKebuke.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinkKebuke.release.xcconfig"; path = "Target Support Files/Pods-DrinkKebuke/Pods-DrinkKebuke.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,17 +73,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F7A5501CB7A8E00D72026C06 /* Pods_DrinkKebuke.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		86A2B219CE71D620D6B043D7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2D0A754D1AD10CBB5ADC7C07 /* Pods-DrinkKebuke.debug.xcconfig */,
+				900A41B6DB17DDCDE3B78197 /* Pods-DrinkKebuke.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		8D2B04AE230CF4C50066F033 = {
 			isa = PBXGroup;
 			children = (
 				8D2B04B9230CF4C50066F033 /* DrinkKebuke */,
 				8D2B04B8230CF4C50066F033 /* Products */,
+				86A2B219CE71D620D6B043D7 /* Pods */,
+				AA8AF2E5D71374CFC7D04E20 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -105,8 +131,21 @@
 				8D2B04C3230CF4C80066F033 /* Assets.xcassets */,
 				8D2B04C5230CF4C80066F033 /* LaunchScreen.storyboard */,
 				8D2B04C8230CF4C80066F033 /* Info.plist */,
+				8D797E722313D2930040702D /* BEBAS___.ttf */,
+				8D797E702313D2920040702D /* Chunkfive.otf */,
+				8D797E712313D2930040702D /* Lobster_1.3.otf */,
+				8D797E6F2313D2920040702D /* Phosphate.ttc */,
+				8D797E6B2313CC8F0040702D /* CarnivalWheelSlice.swift */,
 			);
 			path = DrinkKebuke;
+			sourceTree = "<group>";
+		};
+		AA8AF2E5D71374CFC7D04E20 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				336EDD7A1D7E31520D74281B /* Pods_DrinkKebuke.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -116,9 +155,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8D2B04CB230CF4C80066F033 /* Build configuration list for PBXNativeTarget "DrinkKebuke" */;
 			buildPhases = (
+				7DC1CD57EEC2FC660331A12E /* [CP] Check Pods Manifest.lock */,
 				8D2B04B3230CF4C50066F033 /* Sources */,
 				8D2B04B4230CF4C50066F033 /* Frameworks */,
 				8D2B04B5230CF4C50066F033 /* Resources */,
+				7D94B0866CDA4CD8B53E992D /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -167,13 +208,59 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D797E742313D31F0040702D /* Chunkfive.otf in Resources */,
 				8D2B04C7230CF4C80066F033 /* LaunchScreen.storyboard in Resources */,
+				8D797E752313D3220040702D /* Lobster_1.3.otf in Resources */,
 				8D2B04C4230CF4C80066F033 /* Assets.xcassets in Resources */,
+				8D797E732313D31D0040702D /* BEBAS___.ttf in Resources */,
 				8D2B04C2230CF4C50066F033 /* Main.storyboard in Resources */,
+				8D797E762313D3240040702D /* Phosphate.ttc in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7D94B0866CDA4CD8B53E992D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DrinkKebuke/Pods-DrinkKebuke-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DrinkKebuke/Pods-DrinkKebuke-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DrinkKebuke/Pods-DrinkKebuke-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7DC1CD57EEC2FC660331A12E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DrinkKebuke-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8D2B04B3230CF4C50066F033 /* Sources */ = {
@@ -187,6 +274,7 @@
 				8D49682323111E4E00A0219A /* TotalOrderTableViewCell.swift in Sources */,
 				8D496821231118BC00A0219A /* TotalOrderViewController.swift in Sources */,
 				8D2B04BB230CF4C50066F033 /* AppDelegate.swift in Sources */,
+				8D797E6C2313CC8F0040702D /* CarnivalWheelSlice.swift in Sources */,
 				8D49682523114D9F00A0219A /* OrderData.swift in Sources */,
 				8D18684E23127CE900AE3508 /* activityIndicator.swift in Sources */,
 				8D18684A23125B2F00AE3508 /* PriceTableViewCell.swift in Sources */,
@@ -338,6 +426,7 @@
 		};
 		8D2B04CC230CF4C80066F033 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2D0A754D1AD10CBB5ADC7C07 /* Pods-DrinkKebuke.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -355,6 +444,7 @@
 		};
 		8D2B04CD230CF4C80066F033 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 900A41B6DB17DDCDE3B78197 /* Pods-DrinkKebuke.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

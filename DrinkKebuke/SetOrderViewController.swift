@@ -22,6 +22,7 @@ class SetOrderViewController: UIViewController, UITableViewDelegate, UITableView
     @IBOutlet weak var priceUILbel: UILabel!
     @IBOutlet weak var loagingHFLoader: HFLoader!
     
+
     var cellData: DrinkData?
     var size: String!
     var teaVariant : String!
@@ -33,6 +34,7 @@ class SetOrderViewController: UIViewController, UITableViewDelegate, UITableView
     var checkSize = false
     var checkAdd = false
     
+
     @IBAction func addOrderUIButton(_ sender: Any) {
         teaVariant = cellData?.name
         if name != nil, size != nil, temperature != nil, add != nil, sweet != nil, name != "", size != "", temperature != "", add != "", sweet != ""{

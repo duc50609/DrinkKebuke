@@ -1,0 +1,6 @@
+framework module Pods_DrinkKebuke {
+  umbrella header "Pods-DrinkKebuke-umbrella.h"
+
+  export *
+  module * { export * }
+}

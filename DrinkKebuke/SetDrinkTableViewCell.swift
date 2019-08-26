@@ -14,25 +14,25 @@ class SetDrinkTableViewCell: UITableViewCell, SSRadioButtonControllerDelegate, U
     @IBOutlet var temperatureButton: [SSRadioButton]!
     @IBOutlet var addButton: [SSRadioButton]!
     @IBOutlet weak var nameUITextField: UITextField!
-    
+
     var sizeRadioButtonController: SSRadioButtonsController?
     var temperatureRadioButtonController: SSRadioButtonsController?
     var sweetRadioButtonController: SSRadioButtonsController?
     var addRadioButtonController: SSRadioButtonsController?
     
     var drinkDelegate: sendProtocol?
-    
+    @IBAction func checkname(_ sender: Any) {
+        if let name = nameUITextField!.text{
+            drinkDelegate?.setAddOrderButton(name: name)
+        }
+        
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let name = nameUITextField!.text{
-            drinkDelegate?.setAddOrderButton(name: name)
-        }
-        self.endEditing(true)
-    }
+
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

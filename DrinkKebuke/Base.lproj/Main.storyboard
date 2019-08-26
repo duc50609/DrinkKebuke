@@ -261,6 +261,7 @@
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                     <connections>
+                                                        <action selector="checkname:" destination="nUl-jb-zgw" eventType="editingChanged" id="dv0-Pv-35X"/>
                                                         <outlet property="delegate" destination="43n-9c-gaf" id="dfA-IN-7k4"/>
                                                     </connections>
                                                 </textField>
@@ -460,7 +461,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CUf-BX-GhK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2187" y="-267"/>
+            <point key="canvasLocation" x="2281" y="168"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7cK-Sq-oL2">
@@ -549,6 +550,26 @@
                                     <outlet property="delegate" destination="jhA-Bw-fZg" id="y9e-6n-lYX"/>
                                 </connections>
                             </tableView>
+                            <button opaque="NO" alpha="0.69999999999999996" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MNw-cX-wX4" userLabel="SPIN!">
+                                <rect key="frame" x="330" y="100" width="70" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.73456448320000001" green="0.58085805180000005" blue="0.36208251120000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <state key="normal" title="SPIN!">
+                                    <color key="titleColor" red="0.01361704245" green="0.2325061262" blue="0.31185525660000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="FSA-m2-Giw" kind="show" id="OhO-qG-49X"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="GaR-Ja-ekI">
                                 <rect key="frame" x="87" y="830" width="240" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -836,10 +857,74 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wNN-1b-lNv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1350.7246376811595" y="409.82142857142856"/>
+            <point key="canvasLocation" x="1351" y="517"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="QMz-h0-3Lz">
+            <objects>
+                <viewController storyboardIdentifier="showSpinPage" id="FSA-m2-Giw" customClass="ViewController" customModule="DrinkKebuke" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9yp-2f-oXh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.69999999999999996" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="wheelBackground" translatesAutoresizingMaskIntoConstraints="NO" id="asa-nu-owD">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QZN-Rq-iQa" customClass="TTFortuneWheel" customModule="TTFortuneWheel">
+                                <rect key="frame" x="38.5" y="268.5" width="337" height="337"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="QZN-Rq-iQa" secondAttribute="height" multiplier="1:1" id="UVx-EK-jrp"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wheelFrame" translatesAutoresizingMaskIntoConstraints="NO" id="xyc-VN-w2y">
+                                <rect key="frame" x="22.5" y="255" width="369" height="386"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="xyc-VN-w2y" secondAttribute="height" multiplier="369:386" id="gbM-Mc-LGp"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uAM-bj-KcO">
+                                <rect key="frame" x="119" y="356" width="176" height="178"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                <inset key="contentEdgeInsets" minX="0.0" minY="9" maxX="0.0" maxY="0.0"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="-29" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="SPIN" backgroundImage="spin">
+                                    <color key="titleColor" red="0.90196078430000004" green="0.90588235289999997" blue="0.070588235289999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="rotateButton:" destination="FSA-m2-Giw" eventType="touchUpInside" id="TVh-nT-opJ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="xyc-VN-w2y" firstAttribute="centerY" secondItem="9yp-2f-oXh" secondAttribute="centerY" id="1fF-S7-di7"/>
+                            <constraint firstItem="QZN-Rq-iQa" firstAttribute="centerX" secondItem="xyc-VN-w2y" secondAttribute="centerX" id="7Yb-GG-P8G"/>
+                            <constraint firstItem="QZN-Rq-iQa" firstAttribute="centerY" secondItem="xyc-VN-w2y" secondAttribute="centerY" constant="-11" id="V1H-ya-Hnz"/>
+                            <constraint firstItem="CMX-bg-XtA" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="xyc-VN-w2y" secondAttribute="trailing" constant="3" id="Vkb-Rx-IQJ"/>
+                            <constraint firstItem="xyc-VN-w2y" firstAttribute="trailing" secondItem="QZN-Rq-iQa" secondAttribute="trailing" constant="16" id="a76-F6-VSI"/>
+                            <constraint firstItem="uAM-bj-KcO" firstAttribute="centerX" secondItem="xyc-VN-w2y" secondAttribute="centerX" id="cOf-Aj-8uu"/>
+                            <constraint firstItem="QZN-Rq-iQa" firstAttribute="leading" secondItem="xyc-VN-w2y" secondAttribute="leading" constant="16" id="rkB-Kq-xPR"/>
+                            <constraint firstItem="xyc-VN-w2y" firstAttribute="centerX" secondItem="9yp-2f-oXh" secondAttribute="centerX" id="tAI-kL-L7d"/>
+                            <constraint firstItem="xyc-VN-w2y" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="CMX-bg-XtA" secondAttribute="leading" constant="3" id="wRd-Mt-nY6"/>
+                            <constraint firstItem="uAM-bj-KcO" firstAttribute="centerY" secondItem="xyc-VN-w2y" secondAttribute="centerY" constant="-3" id="z9k-BI-Jzm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="CMX-bg-XtA"/>
+                    </view>
+                    <connections>
+                        <outlet property="spinningWheel" destination="QZN-Rq-iQa" id="fe6-rt-i89"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TEm-91-iad" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2280" y="-758"/>
         </scene>
     </scenes>
     <resources>
         <image name="cup" width="283" height="476"/>
+        <image name="spin" width="176" height="178"/>
+        <image name="wheelBackground" width="640" height="1378"/>
+        <image name="wheelFrame" width="369" height="386"/>
     </resources>
 </document>
