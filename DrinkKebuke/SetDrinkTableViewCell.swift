@@ -21,9 +21,9 @@ class SetDrinkTableViewCell: UITableViewCell, SSRadioButtonControllerDelegate, U
     var addRadioButtonController: SSRadioButtonsController?
     
     var drinkDelegate: sendProtocol?
+    
     @IBAction func checkname(_ sender: Any) {
-        if let name = nameUITextField!.text{
-            drinkDelegate?.setAddOrderButton(name: name)
+        if let name = nameUITextField!.text, name.count > 2{            drinkDelegate?.setAddOrderButton(name: name)
         }
         
     }
@@ -31,8 +31,6 @@ class SetDrinkTableViewCell: UITableViewCell, SSRadioButtonControllerDelegate, U
         super.awakeFromNib()
         // Initialization code
     }
-    
-
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -100,16 +98,15 @@ class SetDrinkTableViewCell: UITableViewCell, SSRadioButtonControllerDelegate, U
         else{
             drinkDelegate?.setAdd(add: "", need: false)
         }
-    
         
+        if let name = nameUITextField!.text{
+            drinkDelegate?.setAddOrderButton(name: name)
+        }
         //temperatureRadioButtonController?.selectedButton(Q1UITextField
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-        if let name = nameUITextField!.text {
-            drinkDelegate?.setAddOrderButton(name: name)
-        }
         return true
     }
     

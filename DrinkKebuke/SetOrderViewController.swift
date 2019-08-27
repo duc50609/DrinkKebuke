@@ -170,7 +170,7 @@ class SetOrderViewController: UIViewController, UITableViewDelegate, UITableView
     
     func setAddOrderButton(name: String){
         self.name = name
-        if self.name != nil, temperature != nil, sweet != nil, add != nil, size != nil, name != "", size != "", temperature != "", add != "", sweet != ""{
+        if  temperature != nil, sweet != nil, add != nil, size != nil,name != "", size != "", temperature != "", add != "", sweet != ""{
             addOrderUIButton.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
         }
         
