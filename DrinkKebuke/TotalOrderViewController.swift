@@ -18,6 +18,7 @@ class TotalOrderViewController: UIViewController, UITableViewDelegate, UITableVi
     var cachedImageViewSize: CGRect!
     var orderData = [OrderData]()
     var totalPrice: Double = 0
+    var speakOrdar: String = ""
     
     @IBOutlet weak var totalPriceUILabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
@@ -112,9 +113,11 @@ class TotalOrderViewController: UIViewController, UITableViewDelegate, UITableVi
                     if let data = OrderData(json: content){
                         self.orderData.append(data)
                         self.totalPrice = self.totalPrice + (Double(data.price!))!
+                        self.speakOrdar = self.speakOrdar + data.teaVariant! + data.size! + data.sugarLevel! + data.temperature! + data.addon!
                     }
                 }
-                
+                print(self.speakOrdar)
+
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                     UIApplication.shared.endIgnoringInteractionEvents()
@@ -124,6 +127,7 @@ class TotalOrderViewController: UIViewController, UITableViewDelegate, UITableVi
         }
         task.resume()
     }
+    
     func deleteDataSheetDB(orderData: OrderData) {
         if let urlStr = "https://sheetdb.io/api/v1/ovpbyaxyfnp82/name/\(orderData.name!)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed), let url = URL(string: urlStr) {
             var urlRequest = URLRequest(url: url)

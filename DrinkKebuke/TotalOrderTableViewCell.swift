@@ -7,6 +7,11 @@
 //
 
 import UIKit
+import AVFoundation
+
+
+
+
 
 class TotalOrderTableViewCell: UITableViewCell {
 
@@ -18,8 +23,17 @@ class TotalOrderTableViewCell: UITableViewCell {
     @IBOutlet weak var addUILabel: UILabel!
     @IBOutlet weak var priceUILabel: UILabel!
     @IBOutlet weak var teaUIImagerView: UIImageView!
+    @IBOutlet weak var speakUIbutton: UIButton!
     
-    var totalPrice: Double = 0;
+    var totalPrice: Double = 0
+    var orderSpeak: String = ""
+    
+    @IBAction func voiceSpeak(_ sender: Any) {
+        let speechUtterance =  AVSpeechUtterance(string: orderSpeak)
+        speechUtterance.voice = AVSpeechSynthesisVoice(language: "zh-TW")
+        let synth = AVSpeechSynthesizer()
+        synth.speak(speechUtterance)
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -28,7 +42,7 @@ class TotalOrderTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
+        
         // Configure the view for the selected state
     }
     
@@ -37,7 +51,9 @@ class TotalOrderTableViewCell: UITableViewCell {
         let addon = cellData.addon!
         let price = cellData.price!
         var image: UIImage?
-
+        let mailPattern = "[\\u4e00-\\u9fa5]+"
+        let pattern = "([\\u4e00-\\u9fa5]+)"
+        let regex = try! Regex(pattern)
         
         if addon == "無"{
             addUILabel.text = ""
@@ -74,6 +90,7 @@ class TotalOrderTableViewCell: UITableViewCell {
             default:
                 print("Error")
         }
+        orderSpeak = regex.firstMatch(in: teaVariant)!.string + regex.firstMatch(in: cellData.size!)!.string + regex.firstMatch(in: cellData.sugarLevel!)!.string + regex.firstMatch(in: cellData.temperature!)!.string
         teaUIImagerView.image = image
         nameUILabel.text = "    訂購人： " + cellData.name!
         teaUILabel.text = cellData.teaVariant
@@ -83,3 +100,5 @@ class TotalOrderTableViewCell: UITableViewCell {
         priceUILabel.text = "NT$" + cellData.price!
     }
 }
+ 
+
