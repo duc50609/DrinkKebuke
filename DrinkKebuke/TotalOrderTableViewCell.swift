@@ -48,7 +48,7 @@ class TotalOrderTableViewCell: UITableViewCell {
     
     func update(with cellData: OrderData) {
         let teaVariant = cellData.teaVariant!
-        let addon = cellData.addon!
+        var addon = cellData.addon!
         let price = cellData.price!
         var image: UIImage?
         let mailPattern = "[\\u4e00-\\u9fa5]+"
@@ -90,7 +90,17 @@ class TotalOrderTableViewCell: UITableViewCell {
             default:
                 print("Error")
         }
-        orderSpeak = regex.firstMatch(in: teaVariant)!.string + regex.firstMatch(in: cellData.size!)!.string + regex.firstMatch(in: cellData.sugarLevel!)!.string + regex.firstMatch(in: cellData.temperature!)!.string
+        
+        if addon != "無" {
+            addon = "加\(regex.firstMatch(in: cellData.addon!)!.string)"
+        }
+            
+        else{
+            addon = ""
+        }
+        
+        orderSpeak = regex.firstMatch(in: teaVariant)!.string + regex.firstMatch(in: cellData.size!)!.string + regex.firstMatch(in: cellData.sugarLevel!)!.string + regex.firstMatch(in: cellData.temperature!)!.string + addon
+        
         teaUIImagerView.image = image
         nameUILabel.text = "    訂購人： " + cellData.name!
         teaUILabel.text = cellData.teaVariant
